@@ -220,7 +220,7 @@ function getGradesList(gradesPageURL){
 }
 
 function generateGradeList(){
-  let courseInfo = getCourseInfoObject(false);
+  let courseInfo = getCourseInfoObject();
   console.log("courseInfo: ", courseInfo);
 
   let GradesCollction = {};
@@ -233,7 +233,7 @@ function generateGradeList(){
   return GradesCollction;
 }
 // get toDoList
-// GenerateToDoList();
+GenerateToDoList();
 
 
 // get Grades
