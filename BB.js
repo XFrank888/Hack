@@ -190,22 +190,21 @@ function getGradesList(gradesPageURL){
           if (!name)
             name = t;
 
-          if (t.match(/(0-9|\.)+\/(0-9|\.)+/)){
+          if (t.match(/(0-9|\.)+\/(0-9|\.)+/))
             grade = t;
-          }
-          else if (t.match(/(0-9|\.)+%/)){
+          
+          else if (t.match(/(0-9|\.)+%/))
             grade = t;
-          }
-          else if (t.match(/(0-9|\.)+/)){
+          
+          else if (t.match(/(0-9|\.)+/))
             grade = t;
-          }
-          else if (t.length == 1 && t.match(/[A-Z]/g)){
+          
+          else if (t.length == 1 && t.match(/[A-Z]/g))
             grade = t;
-          }
-          if (name && grade){
-            console.log(gradeType);
+          
+          if (name && grade)
             break;
-          }
+          
           
       }
       console.log("name", name);
