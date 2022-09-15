@@ -40,7 +40,7 @@ function getCourseInfoObject(currentSemester = true) {
   return courseInfo;
 }
 
-// Get the assignment page url and store in the gloabl res array at index 1
+// Get the assignment page url
 function getAssignmentsPageWithID(courseInfoObj, ID) {
   let request = makeHttpObject();
   console.log("requesting: ", courseInfoObj[ID].href);
@@ -56,6 +56,7 @@ function getAssignmentsPageWithID(courseInfoObj, ID) {
   }
 }
 
+
 // Get individual assignments url from the assignment page
 function getAssignmentLinkList(assignmentPageURL) {
   var request = makeHttpObject();
@@ -66,16 +67,174 @@ function getAssignmentLinkList(assignmentPageURL) {
     var matches = request.responseText.match(
       /\/webapps.*uploadAssignment.*mode=view/g
     );
-    
+
     return matches;
   }
 }
 
+// Pass in assignmentLinkList and return a toDoList
+function getToDoList(assignmentLinkList) {
+  let toDoList = [];
+
+  assignmentLinkList.forEach((link) => {
+    console.log("visiting link: ", link);
+    var request = makeHttpObject();
+    request.open("GET", link, false);
+    request.send(null);
+
+    if (request.readyState == 4) {
+      var dueDate = request.responseText.match(
+        /[A-Z][a-z]*, [A-Z][a-z]* [0-9]*, 20[0-9]{2}/g
+      );
+      // if the assignment has been completed then skip this assignment
+      if (dueDate == null) {
+        console.log("Assignment Completed / Expired");
+      } else {
+        dueDate = dueDate[0];
+        var timeMatch = request.responseText.match(/[0-9]+:[0-9]{2} .M/g);
+        var assignmentNameMatch = request.responseText.match(
+          /Upload Assignment: .*<\/span>/g
+        );
+        var assignmentName = assignmentNameMatch[0]
+          .split("Assignment: ")[1]
+          .split("</span>")[0];
+        var time = timeMatch[0];
+
+        if (dueDate != null && assignmentName != null) {
+          if (new Date(dueDate + " 11:59 pm") - new Date() > 0) {
+            toDoList.push({ link: link, name: assignmentName, dueDate: dueDate, time: time });
+          }
+        }
+      }
+    }
+  });
+  return toDoList;
+}
+
+function GenerateToDoList(){
+  let courseInfo = getCourseInfoObject();
+  console.log("courseInfo: ", courseInfo);
+  let toDoList = {};
+  
+
+  for (const [key, value] of Object.entries(courseInfo)){
+    try {
+      console.log("Processing course: ", value.name);
+      let assignmentPageURL = getAssignmentsPageWithID(courseInfo, key);
+      console.log("assignmentPageURL: ", assignmentPageURL);
+      let assignmentURLs = getAssignmentLinkList(assignmentPageURL);
+      console.log("assignmentURLs: ", assignmentURLs);
+      if (assignmentURLs != null){
+        let courseToDoList = getToDoList(assignmentURLs);
+        console.log("courseToDoList", courseToDoList);
+        toDoList[`${value.name}`] = courseToDoList;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+
+  console.log("toDoList", toDoList);
+  return toDoList;
+
+  
+}
 
 
-let courseInfo = getCourseInfoObject();
-console.log("courseInfo: ", courseInfo);
-let assignmentPageURL = getAssignmentsPageWithID(courseInfo, "50107");
-console.log("assignmentPageURL: ", assignmentPageURL);
-let assignmentURLs = getAssignmentLinkList(assignmentPageURL);
-console.log("assignmentURLs: ", assignmentURLs);
+
+// Get the My Grades page url
+function getGradesPageWithID(courseInfoObj, ID) {
+  let request = makeHttpObject();
+  console.log("requesting: ", courseInfoObj[ID].href);
+  request.open("GET", courseInfoObj[ID].href, false);
+  request.send(null);
+
+  if (request.readyState == 4) {
+    var matches = request.responseText.match(/.*<a.*My Grades/);
+    if (!matches){
+      return null;
+    }
+    matches = matches[matches.length - 1];
+    var a = matches.split('<a href="');
+    let gradesPageURL = a[a.length - 1].split('" target="_self"')[0];
+    return gradesPageURL;
+  }
+}
+
+
+function getGradesList(gradesPageURL){
+  if (!gradesPageURL){
+    return {};
+  }
+
+  let request = makeHttpObject();
+  console.log("requesting: ", gradesPageURL);
+  request.open("GET", gradesPageURL, false);
+  request.send(null);
+
+  if (request.readyState == 4) {
+    var tempdiv = document.createElement("div");
+    tempdiv.innerHTML = request.responseText;
+    let gradeDivs = tempdiv.getElementsByClassName("graded_item_row");
+    let grades = {};
+
+    for (var i = 0; i < gradeDivs.length; i++){
+      let text = gradeDivs[i].textContent.split("\n");
+      let name;
+      let grade;
+      for(var j = 0; j < text.length; j++){
+          let t = text[j].strip();
+          if (t.length == 0)
+            continue;
+          if (!name)
+            name = t;
+
+          if (t.match(/(0-9|\.)+\/(0-9|\.)+/)){
+            grade = t;
+          }
+          else if (t.match(/(0-9|\.)+%/)){
+            grade = t;
+          }
+          else if (t.match(/(0-9|\.)+/)){
+            grade = t;
+          }
+          else if (t.length == 1 && t.match(/[A-Z]/g)){
+            grade = t;
+          }
+          if (name && grade){
+            console.log(gradeType);
+            break;
+          }
+          
+      }
+      console.log("name", name);
+
+      console.log("grade", grade);
+      grades[`${name}`] = grade;
+    }
+    console.log(grades);
+    
+    return grades;
+  }
+}
+
+function generateGradeList(){
+  let courseInfo = getCourseInfoObject(false);
+  console.log("courseInfo: ", courseInfo);
+
+  let GradesCollction = {};
+  for (const [key, value] of Object.entries(courseInfo)){
+    let gradesPageURL = getGradesPageWithID(courseInfo, key);
+    let GradesList = getGradesList(gradesPageURL);
+    GradesCollction[value.name] = GradesList;
+  }
+  console.log("GradesCollction", GradesCollction);
+  return GradesCollction;
+}
+// get toDoList
+// GenerateToDoList();
+
+
+// get Grades
+generateGradeList();
