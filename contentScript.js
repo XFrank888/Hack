@@ -2,17 +2,10 @@
 
 // Ensure this script runs after all js code has been evaluated
 
-// chrome.storage.sync.set({"test": "test"});
-// chrome.storage.sync.get(["test"], result => {
-//     console.log(result.test);
-// })
-
 function myMain(verbose = true, getAssignment = true, getGrade = true) {
-  chrome.storage.sync.get(["courseInfo, courseInfoUpdateTime", "test"], (result) => {
-    chrome.storage.sync.set({"test": "testVal2"});
-
-    
+  chrome.storage.sync.get(null, (result) => {
     console.log(result);
+    
     function makeHttpObject() {
       try {
         return new XMLHttpRequest();
@@ -32,14 +25,21 @@ function myMain(verbose = true, getAssignment = true, getGrade = true) {
 
     function getCourseInfoObject(currentSemester = true, verbose) {
       if (!result.courseInfo) {
-        console.log(result.courseInfo);
         console.log("creating new course info obj...");
         var courseInfo = getNewCourseInfoObject(currentSemester);
 
         return courseInfo;
       }
-      var seconds = Math.floor(((new Date()).getTime() - result.courseInfoUpdateTime) / 1000);
-      console.log("seconds", seconds);
+      let seconds = Math.floor(((new Date()).getTime() - result.courseInfoUpdateTime) / 1000);
+      let days = seconds / 60 / 60/ 24;
+      
+      if (days > 1){
+        console.log("updating course info obj...");
+        var courseInfo = getNewCourseInfoObject(currentSemester);
+
+        return courseInfo;
+      }
+      return result.courseInfo
 
     }
 
@@ -63,11 +63,9 @@ function myMain(verbose = true, getAssignment = true, getGrade = true) {
       }
       if (JSON.stringify(courseInfo.length) != "{}"){
         let currentTime = new Date().getTime();
-        chrome.storage.sync.set({ "courseInfo": courseInfo, "courseInfoUpdateTime": currentTime }, function() {
-            console.log('courseInfo is set to ' + JSON.stringify(courseInfo));
-            console.log('courseInfoUpdateTime is set to ' + JSON.stringify(currentTime));
-        });
-
+        chrome.storage.sync.set({ "courseInfo": courseInfo});
+        chrome.storage.sync.set({ "courseInfoTime": currentTime});
+        
     }
 
       return courseInfo;
@@ -177,6 +175,7 @@ function myMain(verbose = true, getAssignment = true, getGrade = true) {
         }
       }
       if (verbose) console.log("toDoList", toDoList);
+      chrome.storage.sync.set({ "assignments": toDoList});
       return toDoList;
     }
 
@@ -254,6 +253,9 @@ function myMain(verbose = true, getAssignment = true, getGrade = true) {
         GradesCollction[value.name] = GradesList;
       }
       if (verbose) console.log("GradesCollction", GradesCollction);
+      chrome.storage.sync.set({ "grades": GradesCollction});
+      let currentTime = new Date().getTime();
+      chrome.storage.sync.set({ "lastUpdateTime": currentTime});
       return GradesCollction;
     }
     // get toDoList
@@ -267,8 +269,8 @@ function myMain(verbose = true, getAssignment = true, getGrade = true) {
 var i = 0;
 const interval = setInterval(function () {
   if (i < 3) {
-    if (i % 2 == 0) myMain(true, false, true);
-    else myMain(true, true, false);
+    if (i % 2 == 0) myMain(false, false, true);
+    else myMain(false, true, false);
     console.log(i);
   } else {
     if (i % 600 == 0) {
@@ -278,3 +280,4 @@ const interval = setInterval(function () {
   }
   i++;
 }, 1000);
+
