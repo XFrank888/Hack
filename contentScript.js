@@ -258,6 +258,38 @@ function myMain(verbose = true, getAssignment = true, getGrade = true) {
       chrome.storage.sync.set({ "lastUpdateTime": currentTime});
       return GradesCollction;
     }
+    function getPersonalInfo(){
+      let request = makeHttpObject();
+      let personalInfoUrl = "https://blackboard.stonybrook.edu/webapps/blackboard/execute/editUser?context=self_modify";
+      request.open("GET", personalInfoUrl, false);
+      request.send(null);
+
+      if (request.readyState == 4) {
+        let personalInfoDiv = document.createElement("div");
+        personalInfoDiv.innerHTML = request.responseText;
+        let email = personalInfoDiv.querySelector("#email").value;
+        // console.log(email);
+        let firstName = personalInfoDiv.querySelector("#firstName").value;
+        // console.log(firstName);
+        let lastName = personalInfoDiv.querySelector("#lastName").value;
+        // console.log(lastName);
+        let studentId = personalInfoDiv.querySelector("#studentId").value;
+        // console.log(studentId);
+        let userName = personalInfoDiv.querySelector("#userName").value;
+        // console.log(userName);
+
+        let personalInfo = {
+          email: email,
+          firstName: firstName,
+          lastName: lastName,
+          studentId: studentId,
+          userName: userName
+        };
+
+        chrome.storage.sync.set({ "personalInfo": personalInfo});
+      }
+    }
+    getPersonalInfo();
     // get toDoList
     if (getAssignment) generateToDoList(verbose);
 
