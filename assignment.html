@@ -79,18 +79,19 @@
       .styled-table {
         border-collapse: collapse;
         margin: 25px 0;
-        font-size: 0.9em;
+        font-size: 1em;
         font-family: sans-serif;
-        min-width: 400px;
+        min-width: 800px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
       }
       .styled-table thead tr {
         background-color: #009879;
         color: #ffffff;
-        text-align: left;
+        text-align: center;
       }
       .styled-table tbody tr {
         border-bottom: 1px solid #dddddd;
+        text-align: center;
       }
 
       .styled-table tbody tr:nth-of-type(even) {
@@ -127,8 +128,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>ESE 358.01 Computer Vision - Fall 2022</td>
+        <tr class="active-row">
+          <td id="assignmentName"></td>
           <td>Homework 4</td>
           <td>Tuesday, September 27, 2022</td>
           <td>11:59 PM</td>
