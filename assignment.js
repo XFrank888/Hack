@@ -8,7 +8,17 @@ chrome.storage.sync.get(null, (result) => {
   for (const [key, value] of Object.entries(result.assignments)) {
     assignmentsDiv.innerHTML += "<p>&emsp;" + key + "</p>";
     for (var i = 0; i < value.length; i++) {
-      <tr></tr>;
+      //create td id
+      var td_id = document.createElement("td");
+      var idNode = document.createTextNode(value[i].key);
+      td_id.appendChild(idNode);
+
+      //create tr
+      var tr = document.createElement("tr");
+      tr.appendChild(td_id);
+
+      var table = document.getElementsByTagName("table")[0];
+      table.appendChild(tr);
 
       assignmentsDiv.innerHTML += `<p>&emsp;&emsp;&emsp; due ${
         value[i].dueDate + " " + value[i].time
