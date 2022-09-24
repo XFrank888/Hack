@@ -15,9 +15,20 @@
     "content_scripts":[
     {
         "matches": ["https://blackboard.stonybrook.edu/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1"], 
-        "js": ["jquery.js", "contentScript.js"],
+        "js": ["jquery.js", "contentScriptBB.js"],
         "run_at":"document_end"
-    }],
+    },
+    {
+        "matches": ["https://mycourses.stonybrook.edu/d2l/home"], 
+        "js": ["jquery.js", "contentScriptBS.js"],
+        "run_at":"document_end"
+    },
+    {
+        "matches": ["https://mycourses.stonybrook.edu/d2l/home/*"], 
+        "js": ["jquery.js", "contentScriptBS_course.js"],
+        "run_at":"document_end"
+    }
+],
     "action": {
         "default_icon": "/images/icon.png",
         "default_popup": "popup.html"
