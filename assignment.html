@@ -41,8 +41,6 @@
         padding: 30px;
         text-align:center;
         font-family: sans-serif;
-        display:
-        align-items: center;
       }
       .nav {
         background: #333;
@@ -110,33 +108,15 @@
         font-family: Georgia, "Times New Roman", Times, serif;
         font-size: small;
       }
-      .mainPage {
-        font-size: large;
+      .demo1 {
+        font-size: small;
         color: white;
-        border-style: solid;
-        border-radius: 10px;
-        border-color: white;
-        padding: 10px;
       }
 
       .middle {
         align-items: center;
         justify-content:left;
       }
-      .grid-item-center {
-        display: flex;
-        align-items: center;
-        justify-content:center;
-      }
-      .grid-item-right {
-        display: flex;
-        align-items:baseline;
-        justify-content:right;
-      }
-
-      /*
-        board dynamic css
-      */
       .scoreboardTable {
         padding: 0;
         margin: auto;
@@ -161,6 +141,44 @@
       }
       .scoreboardTable tr td {
         height: 25px;
+      }
+      .grid-container {
+        display: inline-grid;
+        grid-template-columns: auto auto auto;
+      }
+      .grid-item-left {
+        display: flex;
+        align-items: center;
+        justify-content:left;
+      }
+      .grid-item-center {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+      }
+      .grid-item-right {
+        display: flex;
+        align-items:baseline;
+      }
+
+      .grid-container-rows {
+        display: inline-grid;
+        grid-template-rows: auto auto auto;
+        justify-content: right;
+      }
+      .grid-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-style: solid;
+        border-radius: 10px;
+        border-width: 2px;
+        border-color: white;
+        padding: 10px;
+      }
+      .demo2 {
+        font-size: 65px;
+        color: white;
       }
     </style>
     <title>Student Page</title>
@@ -219,20 +237,32 @@
             </g>
           </svg>
         </div>
-        <div class="grid-item-center">
-          <a class="demo"> Assignment </a>
-        </div>
-        <div class="grid-item-right">
-          <a class="mainPage" href="frontEnd.html" style="float: right">
-            Main Page
+        <div class=" grid-item-center">
+          <a class="demo2">
+            Assignments
           </a>
+        </div>
+        <div class="grid-item-right grid-container-rows">
+          <div class="grid-item">
+            <a class="demo1" href="frontEnd.html" style="float: right">
+              Homepage
+            </a>
+          </div>
+          <div class="grid-item">
+            <a class="demo1" href="frontEnd.html" style="float: right">
+              Update
+            </a>
+          </div>
+          <div class="grid-item">
+            <a class="demo1" href="frontEnd.html" style="float: right">
+              EzChat
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!--
-            dynamic table
-    -->
+
     <div id="data-table">
       <table id="html-data-table">
         <tr>
@@ -243,6 +273,7 @@
         </tr>
       </table>
     </div>
+
 
     <div id="assignment" class="sentences_content"></div>
     <table class="styled-table">
