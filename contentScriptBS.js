@@ -12,6 +12,7 @@ chrome.storage.sync.get(null, (result) => {
 
     throw new Error("Could not create HTTP request object.");
   }
+  var assignmentsBS = [];
   for (var course of result.courseInfoBS) {
     let assignmentsPageLink = `https://mycourses.stonybrook.edu/d2l/lms/dropbox/user/folders_list.d2l?ou=${course.courseID}&isprv=0`;
     let request = makeHttpObject();
@@ -43,7 +44,12 @@ chrome.storage.sync.get(null, (result) => {
       for (var i = 0; i < assignmentsArr.length; i++) {
         assignmentsDueDatePair.push([assignmentsArr[i], dueDatesArr[i]]);
       }
-      console.log(assignmentsDueDatePair);
+
+      assignmentsBS.push(assignmentsDueDatePair);
+
+      chrome.storage.sync.set({ assignmentsBS: assignmentsBS });
+      console.log(result.assignmentsBS);
     }
+    
   }
 });
