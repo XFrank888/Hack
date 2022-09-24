@@ -18,14 +18,15 @@
         "js": ["jquery.js", "contentScriptBB.js"],
         "run_at":"document_end"
     },
-    {
-        "matches": ["https://mycourses.stonybrook.edu/d2l/home"], 
-        "js": ["jquery.js", "contentScriptBS.js"],
-        "run_at":"document_end"
-    },
+
     {
         "matches": ["https://mycourses.stonybrook.edu/d2l/home/*"], 
         "js": ["jquery.js", "contentScriptBS_course.js"],
+        "run_at":"document_end"
+    },
+    {
+        "matches": ["https://mycourses.stonybrook.edu/d2l/home"], 
+        "js": ["jquery.js", "contentScriptBS.js"],
         "run_at":"document_end"
     }
 ],
