@@ -41,4 +41,5 @@ var sentences = [
 function random(sentences) {
   return sentences[Math.floor(Math.random() * sentences.length)];
 }
-document.getElementById("sentence").innerHTML = random(sentences);
+document.getElementById("sentences").innerHTML =
+  "<p>" + random(sentences) + "</p>";
