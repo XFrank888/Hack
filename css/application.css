@@ -26,6 +26,8 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .middle p {
