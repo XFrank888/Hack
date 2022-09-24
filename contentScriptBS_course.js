@@ -10,7 +10,7 @@ if (isCourse){
     
         if (result.courseInfoBS == null){
             let courseInfoBS = [{courseID: courseID, courseName: title, courseURL: document.URL}];
-            chrome.storage.sync.set({ "courseInfoBS": courseInfoBS});
+            chrome.storage.sync.set({"courseInfoBS": courseInfoBS});
         }
         else{
             let courseInfoBS = result.courseInfoBS;
