@@ -100,10 +100,13 @@
 
       .styled-table tbody tr:last-of-type {
         border-bottom: 2px solid #23232e;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: small;
       }
       .styled-table tbody tr.active-row {
-        font-weight: bold;
         color: #23232e;
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: small;
       }
       .mainPage {
         font-size: large;
@@ -114,8 +117,38 @@
         padding: 10px;
         vertical-align: middle;
       }
+
       .middle {
         align-items: center;
+      }
+
+      /*
+        board dynamic css
+      */
+      .scoreboardTable {
+        padding: 0;
+        margin: auto;
+        border-collapse: collapse;
+        width: 80%;
+        text-align: center;
+        color: whitesmoke;
+      }
+      .scoreboardTableHeaderRow {
+        color: darkorange;
+        font-weight: bold;
+        height: 50px;
+      }
+      .scoreboardTableBodyRow:nth-child(odd) {
+        background-color: rgba(128, 128, 128, 0.05);
+      }
+      #latestUserScore {
+        background-color: crimson;
+      }
+      .scoreboardTableBodyRow:hover {
+        background-color: darkorange;
+      }
+      .scoreboardTable tr td {
+        height: 25px;
       }
     </style>
     <title>Student Page</title>
@@ -181,6 +214,21 @@
         </div>
       </div>
     </div>
+
+    <!--
+            dynamic table
+    -->
+    <div id="data-table">
+      <table id="html-data-table">
+        <tr>
+          <th>userId</th>
+          <th>id</th>
+          <th>title</th>
+          <th>completed</th>
+        </tr>
+      </table>
+    </div>
+
     <div id="assignment" class="sentences_content"></div>
     <table class="styled-table">
       <thead>
@@ -192,8 +240,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>ESE 358.01 Computer Vision - Fall 2022</td>
+        <tr class="active-row">
+          <td id="assignmentName"></td>
           <td>Homework 4</td>
           <td>Tuesday, September 27, 2022</td>
           <td>11:59 PM</td>
