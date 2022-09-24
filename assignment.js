@@ -34,11 +34,10 @@ chrome.storage.sync.get(null, (result) => {
     var idNode = document.createTextNode(id);
     //use the table
     td_id.appendChild(idNode);
-
-    //create name td
+    //create dueDate td
     var td_name = document.createElement("td");
-    var nameNode = document.createTextNode(name);
-    td_name.appendChild(nameNode);
+    var dueDateNode = document.createTextNode(dueDate);
+    td_name.appendChild(dueDateNode);
 
     //
     var td_gender = document.createElement("td");
