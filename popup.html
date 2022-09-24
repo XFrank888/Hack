@@ -52,7 +52,6 @@
       a:link,
       a:visited {
         padding: 0 22px;
-        color: blue;
         outline: 0;
         text-decoration: None;
       }
@@ -72,10 +71,12 @@
         color: #111;
         font-family: "Open Sans", sans-serif;
         display: inline-block;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bold;
         line-height: 12px;
         letter-spacing: 1px;
+        padding-bottom: 30px;
+
       }
 
       .modal-icons {
@@ -149,6 +150,16 @@
         padding-bottom: 1px;
         float: inline-end;
       }
+     .main-page-link{
+        border-style: solid;
+        border-color: rgb(37, 215, 215);
+        border-radius: 20px;
+
+     }
+     .main-page-div{
+        padding-top: 30px;
+     }
+     
     </style>
   </head>
   <body>
@@ -159,7 +170,7 @@
           alt="SBU launcher"
           class="logo-icon"
         />
-        Hack <span class="version">1.0.0</span>
+        Hack <span class="version">1.2.7</span>
       </h1>
     </div>
     <div id="sentences" class="sentences_content"></div>
@@ -236,13 +247,13 @@
       </div>
       <div class="flex">
         <a
-          href="https://idm.suny.edu/security/login/loginForm.do?redirectUrl=https%3A%2F%2Fidm.suny.edu%3A443%2FSSSO%2Fcustomauthn.jsp%3Frefid%3Did-LNHCQGFxk543uBIGErUIVGk9gbA-"
+          href="https://mycourses.stonybrook.edu/d2l/home"
           target="_blank"
         >
           <img
-            src="/images/degreeworks_icon.jpg"
-            title="Degree Work"
-            alt="Degree Work"
+            src="/images/brightspace_logo.png"
+            title="Bright Space"
+            alt="Bright Space"
           />
         </a>
       </div>
@@ -279,8 +290,10 @@
     </div>
 
     <script src="popup.js"></script>
-    <div>
-      <a href="frontEnd.html" target="_blank">Go To Main Page</a>
+    <div class="main-page-div" style="display:flex; justify-content:center">
+            <a class="main-page-link" href="frontEnd.html" target="_blank" style="font-size: large;">Direct to the Main Page</a>
+
+      
     </div>
   </body>
   <script src="sentence.js"></script>

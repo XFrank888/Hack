@@ -42,4 +42,4 @@ function random(sentences) {
   return sentences[Math.floor(Math.random() * sentences.length)];
 }
 document.getElementById("sentences").innerHTML =
-  "<p>" + random(sentences) + "</p>";
+  `<p style="line-height: 20px">` + random(sentences) + "</p>";
