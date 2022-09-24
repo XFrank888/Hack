@@ -1,8 +1,8 @@
 {
-    "name": "Hack",
+    "name": "iConnect",
     "description": "Organize upcoming assignments exclusively for SBU students",
     "version": "1.0.0",
-    "manifest_version": 3,
+    "manifest_version": 2,
     "icons": {
         "16":"/images/icon.png",
         "32":"/images/icon.png",
@@ -10,41 +10,45 @@
         "128":"/images/icon.png"
     },
     "background": {
-
+        "scripts": []
     },
     "content_scripts":[
-    {
-        "matches": ["https://blackboard.stonybrook.edu/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1"], 
-        "js": ["jquery.js", "contentScriptBB.js"],
-        "run_at":"document_end"
-    },
-
-    {
-        "matches": ["https://mycourses.stonybrook.edu/d2l/home/*"], 
-        "js": ["jquery.js", "contentScriptBS_course.js"],
-        "run_at":"document_end"
-    },
-    {
-        "matches": ["https://mycourses.stonybrook.edu/d2l/home"], 
-        "js": ["jquery.js", "contentScriptBS.js"],
-        "run_at":"document_end"
-    }
-],
-    "action": {
+        {
+            "matches": ["https://blackboard.stonybrook.edu/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1"], 
+            "js": ["jquery.js", "contentScriptBB.js"],
+            "run_at":"document_end"
+        },
+    
+        {
+            "matches": ["https://mycourses.stonybrook.edu/d2l/home/*"], 
+            "js": ["jquery.js", "contentScriptBS_course.js"],
+            "run_at":"document_end"
+        },
+        {
+            "matches": ["https://mycourses.stonybrook.edu/d2l/home"], 
+            "js": ["jquery.js", "contentScriptBS.js"],
+            "run_at":"document_end"
+        }
+    ],
+    "browser_action": {
         "default_icon": "/images/icon.png",
         "default_popup": "popup.html"
     },
     "permissions":[
         "tabs",
         "activeTab",
+        "http://*/*",
         "clipboardRead",
         "clipboardWrite",
         "unlimitedStorage",
         "storage"
 
     ],
-    "content_security_policy": {
-        "extension_pages": "script-src 'self'; object-src 'self'; script-src-elem 'self' 'unsafe-inline' https://music.yandex.ru/;"
-    }
+    "content_security_policy": 
+    "script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'"
+    
+
+
 
 }
+    

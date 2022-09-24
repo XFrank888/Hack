@@ -52,6 +52,8 @@ chrome.storage.sync.get(null, (result) => {
     }
     chrome.storage.sync.set({ assignmentsBS: assignmentsBS });
     console.log(result.assignmentsBS);
+    let currentTime = new Date().getTime();
+    chrome.storage.sync.set({ "lastUpdateTimeBS": currentTime});
   }
 
 });

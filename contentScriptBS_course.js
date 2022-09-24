@@ -22,7 +22,7 @@ if (isCourse){
                     break;
                 }
             }
-            if (! existed){
+            if (!existed){
                 courseInfoBS.push({courseID: courseID, courseName: title, courseURL: document.URL});
                 chrome.storage.sync.set({ "courseInfoBS": courseInfoBS});
             }
