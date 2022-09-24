@@ -19,7 +19,7 @@
         font-size: 12px;
         margin: 3px;
         padding-bottom: 10px;
-        background: url(../images/bg-tile.png);
+        background: url(./images/bg-tile.png);
       }
       .main {
         margin: auto;
@@ -38,9 +38,11 @@
       }
       .header {
         background: #23232e;
-        padding: 50px;
-        text-align: center;
+        padding: 30px;
+        text-align:center;
         font-family: sans-serif;
+        display:
+        align-items: center;
       }
       .nav {
         background: #333;
@@ -115,11 +117,21 @@
         border-radius: 10px;
         border-color: white;
         padding: 10px;
-        vertical-align: middle;
       }
 
       .middle {
         align-items: center;
+        justify-content:left;
+      }
+      .grid-item-center {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+      }
+      .grid-item-right {
+        display: flex;
+        align-items:baseline;
+        justify-content:right;
       }
 
       /*
@@ -156,8 +168,8 @@
 
   <body>
     <div class="main">
-      <div class="header">
-        <div>
+      <div class="header grid-container">
+        <div class="grid-item-left">
           <svg
             x="0"
             y="0"
@@ -165,10 +177,10 @@
             fill="#DC7633"
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
-            width="100"
+            width="150"
             zoomAndPan="magnify"
             viewBox="0 0 375 374.9999"
-            height="100"
+            height="150"
             version="1.0"
             style="float: left"
           >
@@ -206,11 +218,14 @@
               </svg>
             </g>
           </svg>
-          <div>
-            <a class="mainPage" href="frontEnd.html" style="float: right">
-              Main Page
-            </a>
-          </div>
+        </div>
+        <div class="grid-item-center">
+          <a class="demo"> Assignment </a>
+        </div>
+        <div class="grid-item-right">
+          <a class="mainPage" href="frontEnd.html" style="float: right">
+            Main Page
+          </a>
         </div>
       </div>
     </div>
