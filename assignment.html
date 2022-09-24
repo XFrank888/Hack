@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <!--
+        CSS
+    -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        list-style: none;
+      }
+      .main {
+        margin: auto;
+      }
+      .data {
+        width: 8px;
+        margin: auto;
+      }
+      .header,
+      .nav,
+      .container,
+      .footer {
+        float: left;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .header {
+        background: #ccc;
+        padding: 20px;
+        text-align: center;
+        font-family: sans-serif;
+      }
+      .nav {
+        background: #333;
+      }
+      .nav a {
+        color: aliceblue;
+        padding: 10px 20px;
+        display: inline-block;
+      }
+      .nav a:hover {
+        background: #bbb;
+        color: black;
+      }
+      .lside {
+        width: 200px;
+        float: left;
+      }
+      .rside {
+        width: 200px;
+        float: right;
+      }
+      .content {
+        margin: 0px, 205px;
+      }
+      .lside,
+      .rside,
+      .content {
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      .footer {
+        padding: 10px;
+        background: #ccc;
+        text-align: center;
+      }
+      .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+      }
+      .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+
+      .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+
+      .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+      }
+      .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+      }
+    </style>
+    <title>Student Page</title>
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="header">
+        <p>
+          <li><a href="frontEnd.html">main page</a></li>
+        </p>
+      </div>
+    </div>
+    <div id="assignment" class="sentences_content"></div>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dom</td>
+          <td>6000</td>
+        </tr>
+        <tr class="active-row">
+          <td>Melissa</td>
+          <td>5150</td>
+        </tr>
+        <!-- and so on... -->
+      </tbody>
+    </table>
+  </body>
+  <script src="backEnd.js"></script>
+</html>
