@@ -8,15 +8,11 @@ img.inject-me {
 }
 
 p {
- line-height: 0px;
+  line-height: 0px;
 }
 
 div {
   line-height: 20px;
-}
-
-.middle div {
-  
 }
 
 .grid-container {
@@ -33,10 +29,10 @@ div {
 }
 
 .middle p {
- text-align: center;
- line-height: 0px;
- margin-right: 0px;
- margin-left: 0px;
+  text-align: center;
+  line-height: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 a {
@@ -73,19 +69,25 @@ a {
   font-weight: normal;
   font-style: normal;
   src: url("fonts/segoeui.eot");
-  src: url("fonts/segoeui.eot?#iefix") format("embedded-opentype"), url("fonts/segoeui.woff") format("woff"), url("fonts/segoeui.ttf") format("truetype"), url("fonts/segoeui.svg#segoeui") format("svg");
+  src: url("fonts/segoeui.eot?#iefix") format("embedded-opentype"),
+    url("fonts/segoeui.woff") format("woff"),
+    url("fonts/segoeui.ttf") format("truetype"),
+    url("fonts/segoeui.svg#segoeui") format("svg");
 }
 @font-face {
   font-family: segoeuib;
   font-weight: normal;
   font-style: normal;
   src: url("fonts/segoeuib.eot");
-  src: url("fonts/segoeuib.eot?#iefix") format("embedded-opentype"), url("fonts/segoeuib.woff") format("woff"), url("fonts/segoeuib.ttf") format("truetype"), url("fonts/segoeuib.svg#segoeuib") format("svg");
+  src: url("fonts/segoeuib.eot?#iefix") format("embedded-opentype"),
+    url("fonts/segoeuib.woff") format("woff"),
+    url("fonts/segoeuib.ttf") format("truetype"),
+    url("fonts/segoeuib.svg#segoeuib") format("svg");
 }
 .logo p {
-    /* other styles goes here... */
-    display: inline-block;
-    vertical-align: top;
+  /* other styles goes here... */
+  display: inline-block;
+  vertical-align: top;
 }
 .heading {
   color: #464b4f;
@@ -114,7 +116,7 @@ a {
 }
 .p.ex1 {
   margin-bottom: 25px;
-} 
+}
 .copy-01 {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -135,7 +137,9 @@ a {
   line-height: 30px;
 }
 
-.copy-03, #page-work .filter-link, #page-signup .form-result {
+.copy-03,
+#page-work .filter-link,
+#page-signup .form-result {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -407,7 +411,10 @@ a {
   color: white;
   margin: 30px 0 15px 0;
 }
-#page-work .copy-03, #page-work .filter-link, #page-work #page-signup .form-result, #page-signup #page-work .form-result {
+#page-work .copy-03,
+#page-work .filter-link,
+#page-work #page-signup .form-result,
+#page-signup #page-work .form-result {
   color: #818baa;
 }
 #page-work .shuffle__sizer {
@@ -564,7 +571,8 @@ a {
 #page-signup .signup-form {
   margin-top: 52px;
 }
-#page-signup input, #page-signup button {
+#page-signup input,
+#page-signup button {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -575,16 +583,20 @@ a {
   border-radius: 5px;
   outline: none;
 }
-#page-signup input::-webkit-input-placeholder, #page-signup button::-webkit-input-placeholder {
+#page-signup input::-webkit-input-placeholder,
+#page-signup button::-webkit-input-placeholder {
   color: #c8c8c8;
 }
-#page-signup input::-moz-placeholder, #page-signup button::-moz-placeholder {
+#page-signup input::-moz-placeholder,
+#page-signup button::-moz-placeholder {
   color: #c8c8c8;
 }
-#page-signup input:-moz-placeholder, #page-signup button:-moz-placeholder {
+#page-signup input:-moz-placeholder,
+#page-signup button:-moz-placeholder {
   color: #c8c8c8;
 }
-#page-signup input:-ms-input-placeholder, #page-signup button:-ms-input-placeholder {
+#page-signup input:-ms-input-placeholder,
+#page-signup button:-ms-input-placeholder {
   color: #c8c8c8;
 }
 #page-signup input {
@@ -812,7 +824,8 @@ a {
   #page-signup .copy-02 {
     padding: 0 20px;
   }
-  #page-signup input, #page-signup button {
+  #page-signup input,
+  #page-signup button {
     width: 90%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
