@@ -69,6 +69,5 @@ chrome.storage.sync.get(null, (result) => {
   }
   document.querySelector("body").appendChild(mainDiv);
 
-  document.getElementById("assignment").innerHTML =
-    "<p>" + assignmentsDiv + "</p>";
+  
 });
