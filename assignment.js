@@ -77,7 +77,7 @@ if (result.grades){
         tr.appendChild(grade);
         grade_tbody.appendChild(tr);
 
-        
+
       }
     }
   }
@@ -90,6 +90,6 @@ let link = document.getElementById("link");
 link.addEventListener("click", openLink, false);
 function openLink() {
   open('https://blackboard.stonybrook.edu/');
-  setInterval(() => location.reload(), 7000); 
+  setInterval(() => location.reload(), 10000);
 }
 
