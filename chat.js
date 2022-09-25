@@ -299,5 +299,5 @@ window.onload = function() {
 setTimeout(() => {let container = document.getElementById("chat_content_container");
 container.removeChild(container.childNodes[1]);
 container.removeChild(container.childNodes[1]);
-}, 230);
+}, 500);
   
