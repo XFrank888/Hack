@@ -9,8 +9,7 @@ if (isCourse){
     chrome.storage.sync.get(null, (result) => {
     
         if (result.courseInfoBS == null){
-            let courseInfoBS = {};
-            [{courseID: courseID, courseName: title, courseURL: document.URL}];
+            let courseInfoBS = [{courseID: courseID, courseName: title, courseURL: document.URL}];
             chrome.storage.sync.set({"courseInfoBS": courseInfoBS});
         }
         else{
@@ -25,6 +24,7 @@ if (isCourse){
             if (!existed){
                 courseInfoBS.push({courseID: courseID, courseName: title, courseURL: document.URL});
                 chrome.storage.sync.set({ "courseInfoBS": courseInfoBS});
+                console.log("added")
             }
             else{
                 console.log("existed");

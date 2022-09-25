@@ -122,15 +122,6 @@
         opacity: 0.4;
       }
 
-      .flex1 {
-        opacity: 1;
-        transition: opacity 0.2s ease-in-out;
-      }
-
-      .flex1:hover {
-        opacity: 0.4;
-      }
-
       .flex .fa {
         font-size: 40px;
         color: #2f5876;
@@ -165,17 +156,31 @@
         float: inline-end;
       }
      .main-page-link{
-        color:#23232e;
+        color:white;
         font-size: small;
      }
      .main-page-div{
         padding-top: 10px;
         float: right;
+        margin-top: 75px;
      }
      #page-hero .brand-logo {
         padding: 33px 0 33px 0;
      }
-     
+     .btn{
+        width: auto;
+        height: auto;
+        margin-right: 6px;
+        background: radial-gradient(circle, #535156 0%, #23232e 100%);
+        font-family: sans-serif;
+        padding: 5px;
+        border-radius: 5px;
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out;
+      }
+      .btn:hover{
+        opacity: 0.4;
+      }
     </style>
   </head>
   <body>
@@ -307,8 +312,8 @@
     </div>
 
     <script src="popup.js"></script>
-    <div class="main-page-div flex1" style="display:flex; justify-content:center">
-            <a class="main-page-link" href="frontEnd.html" target="_blank" style="font-size: small;float: right;">Direct to the Main Page</a>
+    <div class="main-page-div flex1 btn" style="display:flex; justify-content:center">
+            <a class="main-page-link" href="mainPage.html" target="_blank" style="font-size: small;float: right;">Main Page</a>
 
       
     </div>
