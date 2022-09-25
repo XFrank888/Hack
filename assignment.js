@@ -14,7 +14,7 @@ chrome.storage.sync.get(null, (result) => {
         brightspace</a> to update grades and assignments list...`;
   } else {
     let tbody = document.querySelector("tbody");
-
+    if (result.assignments){
     for (const [key, value] of Object.entries(result.assignments)) {
       for (var i = 0; i < value.length; i++) {
         let tr = document.createElement("tr");
@@ -36,7 +36,8 @@ chrome.storage.sync.get(null, (result) => {
 
       }
     }
-    
+  }
+    if (result.assignmentsBS){
     for (const [key, value] of Object.entries(result.assignmentsBS)) {
       for (var i = 0; i < value.length; i++) {
         let tr = document.createElement("tr");
@@ -58,8 +59,8 @@ chrome.storage.sync.get(null, (result) => {
 
       }
     }
-
-
+  }
+if (result.grades){
     grade_tbody = document.querySelector(".grade-tbody");
     for (const [key, value] of Object.entries(result.grades)) {
       for (const [key2, value2] of Object.entries(value)) {
@@ -81,7 +82,7 @@ chrome.storage.sync.get(null, (result) => {
 
       }
 
-
+    }
     }
 
     // let s = document.createElement("div");
