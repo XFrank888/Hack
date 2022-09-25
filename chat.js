@@ -1,13 +1,13 @@
 window.onload = function() {
     firebase.initializeApp({
-        apiKey: "AIzaSyBcEyyb8R47iNSIWCoHCbfey2D5U4GDeog",
-        authDomain: "ezchat-a0c52.firebaseapp.com",
-        databaseURL: "https://ezchat-a0c52-default-rtdb.firebaseio.com",
-        projectId: "ezchat-a0c52",
-        storageBucket: "ezchat-a0c52.appspot.com",
-        messagingSenderId: "250652841906",
-        appId: "1:250652841906:web:ab8b583e5a1448da4d36ab"
-      });
+      apiKey: "AIzaSyDVSer-s7viOk8GQVA-LuvW9PmOwODoDAM",
+      authDomain: "echat2-d7447.firebaseapp.com",
+      projectId: "echat2-d7447",
+      storageBucket: "echat2-d7447.appspot.com",
+      messagingSenderId: "229183380834",
+      appId: "1:229183380834:web:9c8e364cd30b5511e9a03b",
+      measurementId: "G-W29XSXK2VG"
+    });
 
     const storage = firebase.database();
 
@@ -30,7 +30,7 @@ window.onload = function() {
         const little_box = document.createElement('div')
         const box = document.createElement('div')
         little_box.setAttribute('id', 'title_inner_container')
-        title.textContent = 'ezChat Demo-version 5'
+        title.textContent = 'ezChat Demo'
         title.setAttribute('id', 'title')
         little_box.append(title)
         box.setAttribute('id', 'title_container')
@@ -53,13 +53,13 @@ window.onload = function() {
         
         const upState = this;
   
-        const join_container = document.createElement('div')
-        const join_inner_container = document.createElement('div')
+        const j_box = document.createElement('div')
+        const j_little_box = document.createElement('div')
         const join_button_container = document.createElement('div')
         const join_button = document.createElement('button')
         const join_input_container = document.createElement('div')
-        join_container.setAttribute('id', 'join_container')
-        join_inner_container.setAttribute('id', 'join_inner_container')
+        j_box.setAttribute('id', 'join_container')
+        j_little_box.setAttribute('id', 'join_inner_container')
         join_button_container.setAttribute('id', 'join_button_container')
         join_button.setAttribute('id', 'join_button')
         join_button.innerHTML = 'Join <i class="fas fa-sign-in-alt"></i>'
@@ -77,7 +77,7 @@ window.onload = function() {
 
             join_button.onclick = function(){
               upState.save_name(join_input.value) // Save to the storage
-              join_container.remove()
+              j_box.remove()
               upState.create_chat()
             }
           }else{
@@ -86,22 +86,22 @@ window.onload = function() {
         }
         join_button_container.append(join_button)
         join_input_container.append(join_input)
-        join_inner_container.append(join_input_container, join_button_container)
-        join_container.append(join_inner_container)
-        document.body.append(join_container)
+        j_little_box.append(join_input_container, join_button_container)
+        j_box.append(j_little_box)
+        document.body.append(j_box)
       }
 
       create_load(container_id){ // Dynamic Loading
         const container = document.getElementById(container_id)
-        const loader = document.createElement('div')
-        const loader_container = document.createElement('div')
+        const wait = document.createElement('div')
+        const wait_box = document.createElement('div')
         container.innerHTML = ''
-        loader_container.setAttribute('class', 'loader_container')
-        loader.setAttribute('class', 'loader')
+        wait_box.setAttribute('class', 'loader_container')
+        wait.setAttribute('class', 'loader')
   
       
-        loader_container.append(loader)
-        container.append(loader_container)
+        wait_box.append(wait)
+        container.append(wait)
   
       }
       
@@ -110,20 +110,20 @@ window.onload = function() {
         
         const box = document.getElementById('title_container')
         const title = document.getElementById('title')
-        const chat_container = document.createElement('div')
-        const chat_input_container = document.createElement('div')
-        const chat_inner_container = document.createElement('div')
-        const chat_content_container = document.createElement('div')
+        const c_box = document.createElement('div')
+        const chat_input_box = document.createElement('div')
+        const c_little_box = document.createElement('div')
+        const ccc = document.createElement('div')
         const chat_input_send = document.createElement('button')
         const chat_input = document.createElement('input')
         box.classList.add('chat_title_container')
         title.classList.add('chat_title')
   
-        chat_container.setAttribute('id', 'chat_container')
-        chat_inner_container.setAttribute('id', 'chat_inner_container')
+        c_box.setAttribute('id', 'chat_container')
+        c_little_box.setAttribute('id', 'chat_inner_container')
         
-        chat_content_container.setAttribute('id', 'chat_content_container')
-        chat_input_container.setAttribute('id', 'chat_input_container')
+        ccc.setAttribute('id', 'chat_content_container')
+        chat_input_box.setAttribute('id', 'chat_input_container')
   
         // const chat_input_send = innerHTML = <button id='chat_input_send' disabled= 'true' ><i class='far fa-paper-plane'>send</i></button>
         
@@ -159,8 +159,8 @@ window.onload = function() {
         }
   
         const chat_logout = document.createElement('button')
-        const chat_logout_container = document.createElement('div')
-        chat_logout_container.setAttribute('id', 'chat_logout_container')
+        const logout_box = document.createElement('div')
+        logout_box.setAttribute('id', 'chat_logout_container')
 
         chat_logout.setAttribute('id', 'chat_logout')
         chat_logout.textContent = `${upState.get_name()} • logout`
@@ -169,11 +169,11 @@ window.onload = function() {
           upState.homePage()
         }
   
-        chat_logout_container.append(chat_logout)
-        chat_input_container.append(chat_input, chat_input_send)
-        chat_inner_container.append(chat_content_container, chat_input_container, chat_logout_container)
-        chat_container.append(chat_inner_container)
-        document.body.append(chat_container)
+        logout_box.append(chat_logout)
+        chat_input_box.append(chat_input, chat_input_send)
+        c_little_box.append(ccc, chat_input_box, logout_box)
+        c_box.append(c_little_box)
+        document.body.append(c_box)
         upState.create_load('chat_content_container') // Loading dynamic again
         upState.refresh_chat()
       }
@@ -212,9 +212,9 @@ window.onload = function() {
         }
       }
       refresh_chat(){
-        const chat_content_container = document.getElementById('chat_content_container')
+        const ccc = document.getElementById('chat_content_container')
         storage.ref('chats/').on('value', function(messages_object) {
-          chat_content_container.innerHTML = '' // Clear the html text after we access the chat
+          ccc.innerHTML = '' // Clear the html text after we access the chat
           if(messages_object.numChildren() == 0){
             return
           }
@@ -224,21 +224,21 @@ window.onload = function() {
 
 
 
-          var guide = [] 
-          var unordered = [] 
-          var ordered = [] 
+          var sequence = [] 
+          var o1 = [] 
+          var o2 = [] 
   
           for (var i, i = 0; i < messages.length; i++) {
-            guide.push(i+1)
-            unordered.push([messages[i], messages[i].index]);
+            sequence.push(i+1)
+            o1.push([messages[i], messages[i].index]);
           }
 
-          guide.forEach(function(key) { 
+          sequence.forEach(function(key) { 
             var found = false
-            unordered = unordered.filter(function(item) {
+            o1 = o1.filter(function(item) {
               if(!found && item[1] == key) {
 
-                ordered.push(item[0])
+                o2.push(item[0])
                 found = true
                 return false
               }else{
@@ -248,23 +248,23 @@ window.onload = function() {
           })
   
 
-          ordered.forEach(function(data) { // access storage and display the ordered info
+          o2.forEach(function(data) { // access storage and display the ordered info
             const message_content = document.createElement('p')
 
-            const message_inner_container = document.createElement('div')
+            const m_little_box = document.createElement('div')
             const name = data.name
             const message_user = document.createElement('p')
             const message_container = document.createElement('div')
             const message_user_container = document.createElement('div')
             const message = data.message
-            const message_content_container = document.createElement('div')
+            const m_box = document.createElement('div')
             message_content.setAttribute('class', 'message_content')
             message_user.textContent = `${name}`
 
-            message_inner_container.setAttribute('class', 'message_inner_container')
+            m_little_box.setAttribute('class', 'message_inner_container')
             message_user.setAttribute('class', 'message_user')
   
-            message_content_container.setAttribute('class', 'message_content_container')
+            m_box.setAttribute('class', 'message_content_container')
             message_container.setAttribute('class', 'message_container')
   
             message_user_container.setAttribute('class', 'message_user_container')
@@ -276,13 +276,15 @@ window.onload = function() {
             message_content.textContent = `${message}`
   
             message_user_container.append(message_user)
-            message_content_container.append(message_content)
-            message_inner_container.append(message_user_container, message_content_container)
-            message_container.append(message_inner_container)
+            m_box.append(message_content)
+            m_little_box.append(message_user_container, m_box)
+            message_container.append(m_little_box)
   
-            chat_content_container.append(message_container)
+            ccc.append(message_container)
           });
-          chat_content_container.scrollTop = chat_content_container.scrollHeight;
+
+
+          ccc.scrollTop = ccc.scrollHeight;
       })
   
       }
