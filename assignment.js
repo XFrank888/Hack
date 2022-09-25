@@ -8,7 +8,7 @@ chrome.storage.sync.get(null, (result) => {
 
   if (!result.assignments && !result.grades && !result.assignmentsBS) {
     let div = document.getElementById("table-div");
-    div.innerHTML = `<a id="update-p" style="font-size: large">Please click the update button to update your assignments and grades for the first time!</a>`;
+    div.innerHTML = `<a id="update-p" style="font-size: large">Please click the update button at the upper right hand corner to update your assignments and grades for the first time!</a>`;
   } else {
     let tbody = document.querySelector("tbody");
     if (result.assignments){
@@ -92,5 +92,7 @@ if (result.grades){
 let link = document.getElementById("link");
 link.addEventListener("click", openLink, false);
 function openLink() {
-  open('https://blackboard.stonybrook.edu/')
+  open('https://blackboard.stonybrook.edu/');
+  setInterval(() => location.reload(), 7000); 
 }
+
