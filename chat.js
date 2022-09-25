@@ -296,7 +296,8 @@ window.onload = function() {
     }
 
   }
-setInterval(() => {let container = document.getElementById("chat_content_container");
+setTimeout(() => {let container = document.getElementById("chat_content_container");
 container.removeChild(container.childNodes[1]);
-container.removeChild(container.childNodes[1]);}, 20);
+container.removeChild(container.childNodes[1]);
+}, 230);
   
