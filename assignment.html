@@ -188,6 +188,12 @@
       }
     </style>
     <title>Student Page</title>
+    <script>
+      myId.onclick = function(){
+        open('https://www.example1.com');
+        location.href = ('https://www.example2.com');
+      }
+    </script>
   </head>
 
   <body>
@@ -208,7 +214,7 @@
             </a>
           </div>
           <div class="grid-item">
-            <a class="demo1" target="_blank" rel="noopener noreferrer" href="https://blackboard.stonybrook.edu/" style="float: right">
+            <a class="demo1" target="_blank" rel="noopener noreferrer" id="link" href="https://mycourses.stonybrook.edu/" style="float: right">
               Update
             </a>
           </div>

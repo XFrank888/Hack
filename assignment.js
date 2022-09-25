@@ -6,7 +6,6 @@ chrome.storage.sync.get(null, (result) => {
   // let gradesDiv = document.createElement("div");
   // gradesDiv.setAttribute("class", "data");
 
-
   if (!result.assignments && !result.grades && !result.assignmentsBS) {
     let div = document.getElementById(assignments);
     div.innerHTML = `Please visit <a href="https://blackboard.stonybrook.edu/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1" target="_blank">
@@ -121,3 +120,9 @@ if (result.grades){
 
   
   }});
+
+let link = document.getElementById("link");
+link.addEventListener("click", openLink, false);
+function openLink() {
+  open('https://blackboard.stonybrook.edu/')
+}

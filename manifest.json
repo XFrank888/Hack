@@ -4,10 +4,10 @@
     "version": "1.0.0",
     "manifest_version": 2,
     "icons": {
-        "16":"/images/icon.png",
-        "32":"/images/icon.png",
-        "48":"/images/icon.png",
-        "128":"/images/icon.png"
+        "16":"/images/linode.png",
+        "32":"/images/linode.png",
+        "48":"/images/linode.png",
+        "128":"/images/linode.png"
     },
     "background": {
         "scripts": []
@@ -31,7 +31,7 @@
         }
     ],
     "browser_action": {
-        "default_icon": "/images/icon.png",
+        "default_icon": "/images/linode.png",
         "default_popup": "popup.html"
     },
     "permissions":[
