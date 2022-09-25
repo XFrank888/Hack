@@ -1,5 +1,3 @@
-
-
 window.onload = function() {
     firebase.initializeApp({
         apiKey: "AIzaSyBcEyyb8R47iNSIWCoHCbfey2D5U4GDeog",
@@ -11,7 +9,7 @@ window.onload = function() {
         appId: "1:250652841906:web:ab8b583e5a1448da4d36ab"
       });
 
-    const storage = firebase.database()
+    const storage = firebase.database();
 
     class ezChat{
       
