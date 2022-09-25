@@ -294,5 +294,9 @@ window.onload = function() {
     if(app.get_name() != null){
       app.chat()
     }
+
   }
+setInterval(() => {let container = document.getElementById("chat_content_container");
+container.removeChild(container.childNodes[1]);
+container.removeChild(container.childNodes[1]);}, 20);
   

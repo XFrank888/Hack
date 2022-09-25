@@ -77,13 +77,10 @@ if (result.grades){
         tr.appendChild(grade);
         grade_tbody.appendChild(tr);
 
+        
       }
-
     }
-    }
-
-    
-  
+  }
   }
  
 })
