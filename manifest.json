@@ -1,7 +1,7 @@
 {
     "name": "iConnect",
-    "description": "Organize upcoming assignments exclusively for SBU students",
-    "version": "1.0.0",
+    "description": "A connection link to Blackboard and Brightspace",
+    "version": "1.0.8",
     "manifest_version": 2,
     "icons": {
         "16":"/images/linode.png",

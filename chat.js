@@ -296,6 +296,7 @@ window.onload = function() {
     }
 
   }
+<<<<<<< HEAD
 
 
 setInterval(() => {
@@ -314,4 +315,5 @@ setInterval(() => {
     container.removeChild(node);
   });
 }, 100);
+
   
