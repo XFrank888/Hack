@@ -7,10 +7,8 @@ chrome.storage.sync.get(null, (result) => {
   // gradesDiv.setAttribute("class", "data");
 
   if (!result.assignments && !result.grades && !result.assignmentsBS) {
-    let div = document.getElementById(assignments);
-    div.innerHTML = `Please visit <a href="https://blackboard.stonybrook.edu/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1" target="_blank">
-        blackboard</a> and <a href="https://mycourses.stonybrook.edu/d2l/home" target="_blank">
-        brightspace</a> to update grades and assignments list...`;
+    let div = document.getElementById("table-div");
+    div.innerHTML = `<a id="update-p" style="font-size: large">Please click the update button to update your assignments and grades for the first time!</a>`;
   } else {
     let tbody = document.querySelector("tbody");
     if (result.assignments){
@@ -84,42 +82,12 @@ if (result.grades){
     }
     }
 
-    // let s = document.createElement("div");
-    // var seconds = Math.floor(
-    //   (new Date().getTime() - result.lastUpdateTime) / 1000
-    // );
-    // var minutes = Math.floor(seconds / 60);
-    // var hours = Math.floor(minutes / 60);
-    // var days = Math.floor(hours / 60);
-
-  //   if (days > 0) {
-  //     if (days == 1) s.innerHTML += `<p> Last update: ${days} day ago</p>`;
-  //     else s.innerHTML += `<p> Last update: ${days} days ago</p>`;
-  //   } else if (hours > 0) {
-  //     if (hours == 1) s.innerHTML += `<p> Last update: ${hours} hour ago</p>`;
-  //     else s.innerHTML += `<p> Last update: ${hours} hours ago</p>`;
-  //   } else if (minutes > 0) {
-  //     if (minutes == 1)
-  //       s.innerHTML += `<p> Last update: ${minutes} minute ago</p>`;
-  //     else s.innerHTML += `<p> Last update: ${minutes} minutes ago</p>`;
-  //   } else {
-  //     if (seconds == 1)
-  //       s.innerHTML += `<p> Last update: ${seconds} second ago</p>`;
-  //     else s.innerHTML += `<p> Last update: ${seconds} seconds ago</p>`;
-  //   }
-
-  //   s.innerHTML += `<p class='log'><a class='log' href='https://blackboard.stonybrook.edu/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1'  target='_blank'>
-  //       Log into BlackBoard to update the assignments list
-  //       </a></p>`;
-
-  //   mainDiv.appendChild(assignmentsDiv);
-  //   mainDiv.appendChild(gradesDiv);
-  //   mainDiv.appendChild(s);
-  // }
-  // document.querySelector("body").appendChild(mainDiv);
-
+    
   
-  }});
+  }
+ 
+})
+
 
 let link = document.getElementById("link");
 link.addEventListener("click", openLink, false);
