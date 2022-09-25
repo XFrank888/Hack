@@ -296,8 +296,22 @@ window.onload = function() {
     }
 
   }
-setTimeout(() => {let container = document.getElementById("chat_content_container");
-container.removeChild(container.childNodes[1]);
-container.removeChild(container.childNodes[1]);
-}, 230);
+
+
+setInterval(() => {
+  let nodesDelete = [];
+  let container = document.getElementById("chat_content_container");
+  container.childNodes.forEach((child) => {
+    if (child.innerText.includes("tian cai")){
+      nodesDelete.push(child);
+    }
+    // if (child.innerText.includes("Hopefully, you will find this piece of software helpful!")){
+    //   console.log(child.childNodes[0]);
+    //   child.childNodes[0].childNodes[0].textContent = <p class="message_user">Yuxuan</p>;
+    // }
+  })
+  nodesDelete.forEach((node) => {
+    container.removeChild(node);
+  });
+}, 100);
   
