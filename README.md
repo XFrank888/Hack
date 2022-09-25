@@ -10,6 +10,10 @@ Here's a walkthrough of implemented features:
 
 
 
+
+https://user-images.githubusercontent.com/60580054/192129520-965cb3c8-d913-4e61-892f-2d1795bc2089.mp4
+
+
 Function implemented on the video:
 1. install iConnect
 2. Use iConnect to see motivating quotation
