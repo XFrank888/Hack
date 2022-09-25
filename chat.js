@@ -296,8 +296,6 @@ window.onload = function() {
     }
 
   }
-<<<<<<< HEAD
-
 
 setInterval(() => {
   let nodesDelete = [];
